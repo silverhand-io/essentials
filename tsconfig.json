@@ -2,5 +2,9 @@
   "extends": "./tsconfig.base",
   "compilerOptions": {
     "declaration": true,
-  }
+    "outDir": "lib"
+  },
+  "include": [
+    "src"
+  ]
 }
