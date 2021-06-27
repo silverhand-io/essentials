@@ -6,6 +6,12 @@
   "repository": "git@github.com:logto-io/essentials.git",
   "author": "Logto",
   "license": "UNLICENSED",
+  "files": [
+    "lib",
+    "tsconfig.base.json",
+    ".prettierrc",
+    "xo.config.js"
+  ],
   "scripts": {
     "build": "rm -rf lib/ && tsc",
     "prepare": "yarn build",
