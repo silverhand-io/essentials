@@ -7,10 +7,6 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "commonjs",
-    "moduleResolution": "node",
-    "outDir": "lib"
-  },
-  "include": [
-    "src"
-  ]
+    "moduleResolution": "node"
+  }
 }
