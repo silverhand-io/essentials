@@ -9,8 +9,8 @@
   "files": [
     "lib",
     "tsconfig.base.json",
-    ".prettierrc",
-    "xo.config.js"
+    ".prettierrc.json",
+    ".xo-config.json"
   ],
   "scripts": {
     "build": "rm -rf lib/ && tsc",
