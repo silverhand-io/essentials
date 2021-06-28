@@ -9,6 +9,7 @@
   "files": [
     "lib",
     "tsconfig.base.json",
+    "tsconfig.react.json",
     ".prettierrc.json",
     ".xo-config.json"
   ],
