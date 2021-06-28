@@ -11,6 +11,7 @@
     "tsconfig.base.json",
     "tsconfig.react.json",
     ".prettierrc.json",
+    ".stylelintrc.json",
     ".xo-config.json"
   ],
   "scripts": {
