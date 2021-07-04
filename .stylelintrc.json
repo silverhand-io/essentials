@@ -1,6 +1,8 @@
 {
   "extends": "stylelint-config-xo-scss",
   "rules": {
-    "indentation": [2, { "baseIndentLevel": 1 }]
+    "indentation": [2, { "baseIndentLevel": 1 }],
+    "selector-class-pattern": "^((?!-).)*$",
+    "selector-id-pattern": "^((?!-).)*$"
   }
 }
