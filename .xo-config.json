@@ -2,6 +2,15 @@
   "space": true,
   "prettier": true,
   "rules": {
-    "unicorn/no-array-reduce": "off"
+    "unicorn/no-array-reduce": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "kebabCase": true,
+          "pascalCase": true
+        }
+      }
+    ]
   }
 }
