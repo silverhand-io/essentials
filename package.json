@@ -26,8 +26,8 @@
     "xo": "0.39.1"
   },
   "engines": {
-    "node": "14",
-    "yarn": "1"
+    "node": ">=14.15.0",
+    "yarn": "^1.22.10"
   },
   "dependencies": {
     "lodash.orderby": "^4.6.0",
