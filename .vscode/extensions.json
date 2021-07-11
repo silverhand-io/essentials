@@ -1,5 +1,5 @@
 {
   "recommendations": [
-    "samverschueren.linter-xo"
+    "dbaeumer.vscode-eslint"
   ]
 }

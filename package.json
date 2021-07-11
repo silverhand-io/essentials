@@ -7,23 +7,22 @@
   "author": "Logto",
   "license": "UNLICENSED",
   "files": [
-    "lib",
-    "tsconfig.base.json",
-    "tsconfig.react.json",
-    ".prettierrc.json",
-    ".stylelintrc.json",
-    ".xo-config.json"
+    "lib"
   ],
   "scripts": {
     "build": "rm -rf lib/ && tsc",
     "prepare": "yarn build",
-    "lint": "xo"
+    "lint": "eslint \"src/**\""
   },
   "devDependencies": {
+    "@logto/eslint-config": "^0.1.0-rc.3",
+    "@logto/ts-config": "^0.1.0-rc.3",
     "@types/lodash.orderby": "^4.6.6",
     "@types/lodash.pick": "^4.4.6",
-    "typescript": "^4.3.4",
-    "xo": "0.39.1"
+    "eslint": "^7.30.0",
+    "eslint-formatter-pretty": "^4.1.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
   },
   "engines": {
     "node": ">=14.15.0",
@@ -32,5 +31,9 @@
   "dependencies": {
     "lodash.orderby": "^4.6.0",
     "lodash.pick": "^4.4.0"
+  },
+  "prettier": "@logto/eslint-config/.prettierrc",
+  "eslintConfig": {
+    "extends": "@logto"
   }
 }
