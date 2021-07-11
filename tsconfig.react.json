@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.base",
-  "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "noEmit": true,
-    "jsx": "react"
-  }
-}

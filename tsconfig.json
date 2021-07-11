@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.base",
+  "extends": "@logto/ts-config/tsconfig.base",
   "compilerOptions": {
     "declaration": true,
     "outDir": "lib"
