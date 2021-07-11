@@ -12,7 +12,7 @@
   "scripts": {
     "build": "rm -rf lib/ && tsc",
     "prepare": "yarn build",
-    "lint": "eslint \"src/**\""
+    "lint": "eslint --format pretty \"src/**\""
   },
   "devDependencies": {
     "@logto/eslint-config": "^0.1.0-rc.3",
