@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "rm -rf lib/ && tsc",
-    "prepare": "yarn build",
+    "prepare": "pnpm build",
     "lint": "eslint --format pretty \"src/**\""
   },
   "devDependencies": {
@@ -26,7 +26,7 @@
   },
   "engines": {
     "node": ">=14.15.0",
-    "yarn": "^1.22.10"
+    "pnpm": ">=6"
   },
   "dependencies": {
     "lodash.orderby": "^4.6.0",
