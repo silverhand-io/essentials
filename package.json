@@ -1,10 +1,10 @@
 {
-  "name": "@logto/essentials",
+  "name": "@silverhand/essentials",
   "version": "1.1.0-rc.2",
   "description": "The missing essentials for TypeScript (and JavaScript).",
   "main": "lib/index.js",
-  "repository": "git@github.com:logto-io/essentials.git",
-  "author": "Logto",
+  "repository": "git@github.com:silverhand-io/essentials.git",
+  "author": "Silverhand Inc.",
   "license": "UNLICENSED",
   "files": [
     "lib"
@@ -15,11 +15,11 @@
     "lint": "eslint --format pretty \"src/**\""
   },
   "devDependencies": {
-    "@logto/eslint-config": "^0.1.0-rc.3",
-    "@logto/ts-config": "^0.1.0-rc.3",
+    "@silverhand/eslint-config": "^0.2.2",
+    "@silverhand/ts-config": "^0.2.2",
     "@types/lodash.orderby": "^4.6.6",
     "@types/lodash.pick": "^4.4.6",
-    "eslint": "^7.30.0",
+    "eslint": "^7.32.0",
     "eslint-formatter-pretty": "^4.1.0",
     "prettier": "^2.3.2",
     "typescript": "^4.3.5"
@@ -32,8 +32,8 @@
     "lodash.orderby": "^4.6.0",
     "lodash.pick": "^4.4.0"
   },
-  "prettier": "@logto/eslint-config/.prettierrc",
+  "prettier": "@silverhand/eslint-config/.prettierrc",
   "eslintConfig": {
-    "extends": "@logto"
+    "extends": "@silverhand"
   }
 }
