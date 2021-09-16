@@ -13,7 +13,7 @@
     "build": "rm -rf lib/ && tsc",
     "prepack": "pnpm test && pnpm build",
     "lint": "eslint --ext .ts src",
-    "test": "jest"
+    "test": "jest src"
   },
   "devDependencies": {
     "@silverhand/eslint-config": "^0.2.2",
