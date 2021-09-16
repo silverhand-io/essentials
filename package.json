@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "repository": "git@github.com:silverhand-io/essentials.git",
   "author": "Silverhand Inc.",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "files": [
     "lib"
   ],
