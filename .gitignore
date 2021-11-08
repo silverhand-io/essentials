@@ -23,3 +23,4 @@ yarn-error.log*
 cache
 .DS_Store
 *.env
+.idea/
