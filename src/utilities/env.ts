@@ -6,3 +6,5 @@ export const assertEnv = (key: string): string => {
   assert(value, new Error(`env variable ${key} not found`));
   return value;
 };
+
+export const isNode = () => typeof window === 'undefined';
