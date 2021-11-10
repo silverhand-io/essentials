@@ -1,4 +1,4 @@
-import { assertEnv, getEnv } from './env';
+import { assertEnv, getEnv, isNode } from './env';
 
 describe('getEnv()', () => {
   beforeAll(() => {
@@ -25,5 +25,11 @@ describe('assertEnv()', () => {
 
   it("throws an error if env doesn't exist", () => {
     expect(() => assertEnv('BAR')).toThrow('env variable BAR not found');
+  });
+});
+
+describe('isNode()', () => {
+  it('when running under Node', () => {
+    expect(isNode()).toBeTruthy();
   });
 });
