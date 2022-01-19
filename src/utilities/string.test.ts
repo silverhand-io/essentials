@@ -43,4 +43,20 @@ describe('UrlSafeBase64()', () => {
       );
     });
   });
+
+  describe('isSafe()', () => {
+    test('empty string should be true', () => {
+      expect(UrlSafeBase64.isSafe('')).toBeTruthy();
+    });
+
+    test('url-safe characters should be true', () => {
+      expect(
+        UrlSafeBase64.isSafe('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_')
+      ).toBeTruthy();
+    });
+
+    test('non-url-safe characters should be false', () => {
+      expect(UrlSafeBase64.isSafe('=+')).toBeFalsy();
+    });
+  });
 });
