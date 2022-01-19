@@ -29,6 +29,7 @@ const restoreNonUrlSafeCharacters = (base64String: string) =>
 const CHARACTER_SET_OF_BTOA_ATOB = 'latin1';
 
 export const UrlSafeBase64 = {
+  isSafe: (input: string) => /^[\w-]*$/.test(input),
   encode: (rawString: string) => {
     const encodedString = isNode()
       ? Buffer.from(rawString, CHARACTER_SET_OF_BTOA_ATOB).toString('base64')
