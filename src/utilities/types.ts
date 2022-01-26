@@ -60,3 +60,20 @@ type NormalizeKeyPathsRecursively<T, K = keyof T> = K extends keyof T
  * Normalize read-only key paths
  */
 export type NormalizeKeyPaths<T> = keyof T | NormalizeKeyPathsRecursively<T>;
+
+/**
+ * Compose a new type from another type by mapping snake case type keys to camel case
+ * E.g. type T = { key_of_string: string } => type U = { keyOfString: string }
+ *
+ * Inspired by:
+ * https://stackoverflow.com/a/65015868/3431443
+ */
+type CamelCase<S extends string> = S extends `${infer P1}_${infer P2}${infer P3}`
+  ? `${Lowercase<P1>}${Uppercase<P2>}${CamelCase<P3>}`
+  : Lowercase<S>;
+
+export type KeysToCamelCase<T> = {
+  [K in keyof T as CamelCase<string & K>]: T[K] extends Record<string, unknown>
+    ? KeysToCamelCase<T[K]>
+    : T[K];
+};
