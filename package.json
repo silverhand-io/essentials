@@ -16,8 +16,8 @@
     "test": "jest src"
   },
   "devDependencies": {
-    "@silverhand/eslint-config": "^0.2.2",
-    "@silverhand/ts-config": "^0.2.2",
+    "@silverhand/eslint-config": "^0.6.1",
+    "@silverhand/ts-config": "^0.6.1",
     "@types/jest": "^27.0.1",
     "@types/lodash.orderby": "^4.6.6",
     "@types/lodash.pick": "^4.4.6",

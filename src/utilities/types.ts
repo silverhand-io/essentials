@@ -40,10 +40,12 @@ export type Truthy<T> = Exclude<T, Falsy>;
  * Join keys: e.g. type K1 = 'a', type K2 = 'b', JoinKeys<K1, K2> = 'a.b'
  */
 type JoinKeys<K1, K2> = `${K1 & string}.${K2 & string}`;
+
 /**
  * Join keys excluding array key: e.g. type K1 = 'a', type K2 = keyof any[], JoinKeys<K1, K2> = never
  */
 type JoinKeysExcludingArrayKey<K1, K2> = JoinKeys<K1, Exclude<K2, keyof any[]>>;
+
 /**
  * Normalize read-only key paths recursively
  */

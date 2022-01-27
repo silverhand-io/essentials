@@ -34,10 +34,12 @@ export const UrlSafeBase64 = {
     const encodedString = isNode()
       ? Buffer.from(rawString, CHARACTER_SET_OF_BTOA_ATOB).toString('base64')
       : btoa(rawString);
+
     return replaceNonUrlSafeCharacters(encodedString);
   },
   decode: (encodedString: string) => {
     const nonUrlSafeEncodedString = restoreNonUrlSafeCharacters(encodedString);
+
     return isNode()
       ? Buffer.from(nonUrlSafeEncodedString, 'base64').toString(CHARACTER_SET_OF_BTOA_ATOB)
       : atob(nonUrlSafeEncodedString);
