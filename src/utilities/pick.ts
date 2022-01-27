@@ -2,7 +2,7 @@ import pick from 'lodash.pick';
 
 import { Picked, PlainObject } from './types';
 
-export { pick };
+export { default as pick } from 'lodash.pick';
 
 export const pickState =
   <T extends PlainObject, Keys extends Array<keyof T>>(...keys: Keys) =>
