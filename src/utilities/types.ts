@@ -1,3 +1,5 @@
+export type Nullable<T> = T | null;
+
 export type Optional<T> = T | undefined;
 
 export type PlainObject = Record<string | number | symbol, unknown>;
