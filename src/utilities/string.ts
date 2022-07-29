@@ -1,3 +1,5 @@
+import { customAlphabet } from 'nanoid';
+
 import { isNode } from './env';
 
 export function toTitle(string: string) {
@@ -47,3 +49,8 @@ export const UrlSafeBase64 = {
   replaceNonUrlSafeCharacters,
   restoreNonUrlSafeCharacters,
 };
+
+export const generateRandomString = (
+  size: number,
+  alphabet = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+): string => customAlphabet(alphabet, size)();
