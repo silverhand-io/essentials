@@ -1,4 +1,4 @@
-import { assertEnv, getEnv, isNode } from './env';
+import { assertEnv, getEnv, getEnvAsStringArray, isNode } from './env';
 
 describe('getEnv()', () => {
   beforeAll(() => {
@@ -11,6 +11,37 @@ describe('getEnv()', () => {
 
   it("returns fallback if env doesn't exist", () => {
     expect(getEnv('BAR', '123')).toEqual('123');
+  });
+});
+
+describe('getEnvAsStringArray()', () => {
+  const envBackup = process.env;
+
+  beforeEach(() => {
+    process.env = { ...envBackup };
+  });
+
+  it('returns correct env value', () => {
+    process.env = { FOO: 'bar,baz' };
+    expect(getEnvAsStringArray('FOO')).toEqual(['bar', 'baz']);
+
+    process.env.NEED_TO_TRIM_VALUE = '  bar,baz  ';
+    expect(getEnvAsStringArray('NEED_TO_TRIM_VALUE')).toEqual(['bar', 'baz']);
+  });
+
+  it("returns fallback if env doesn't exist", () => {
+    process.env = { BAR: '' };
+    expect(getEnvAsStringArray('BAR', ['123'])).toEqual(['123']);
+  });
+
+  it('returns empty array if env is empty', () => {
+    process.env = { BAR: '' };
+    expect(getEnvAsStringArray('BAR')).toEqual([]);
+  });
+
+  it('returns env value as array if only one value is provided', () => {
+    process.env.SINGLE = 'single';
+    expect(getEnvAsStringArray('SINGLE')).toEqual(['single']);
   });
 });
 
