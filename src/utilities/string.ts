@@ -7,7 +7,7 @@ export function toTitle(string: string) {
 
   return string
     .toLowerCase()
-    .replace(/(?:^|\s|-)\S/g, (x) => x.toUpperCase())
+    .replace(/(?:^|\s|-)\S/g, (value) => value.toUpperCase())
     .replace(/-/g, ' ');
 }
 

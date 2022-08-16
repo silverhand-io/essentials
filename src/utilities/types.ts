@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type Nullable<T> = T | null;
 
 export type Optional<T> = T | undefined;
@@ -10,10 +11,13 @@ export type Picked<T extends PlainObject, Keys extends Array<keyof T>> = {
   [key in ValuesOf<Keys>]: T[key];
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type Falsy = '' | 0 | false | null | undefined;
 
 export type Truthy<T> = Exclude<T, Falsy>;
 
+// Copied from react-i18next, disable to honor the original code
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * MIT License
  *
@@ -81,3 +85,4 @@ export type KeysToCamelCase<T> = {
     ? KeysToCamelCase<T[K]>
     : T[K];
 };
+/* eslint-enable @typescript-eslint/no-explicit-any */

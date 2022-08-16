@@ -1,5 +1,7 @@
 import { assert } from './assert';
 
+// Browsers don't have `process`
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 export const getEnv = (key: string, fallback = ''): string => process?.env[key] ?? fallback;
 
 export const getEnvAsStringArray = (envKey: string, fallback: string[] = []): string[] => {
@@ -16,6 +18,8 @@ export const getEnvAsStringArray = (envKey: string, fallback: string[] = []): st
 };
 
 export const assertEnv = (key: string): string => {
+  // Browsers don't have `process`
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   const value = process?.env[key];
   assert(value, new Error(`env variable ${key} not found`));
 
