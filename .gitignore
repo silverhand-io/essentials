@@ -24,3 +24,4 @@ cache
 .DS_Store
 *.env
 .idea/
+.history

@@ -1,4 +1,4 @@
-import { toTitle, UrlSafeBase64 } from './string';
+import { toTitle, urlSafeBase64 } from './string';
 
 describe('toTitle()', () => {
   test('upper-case the first non-blank character of each word', () => {
@@ -11,26 +11,27 @@ describe('toTitle()', () => {
 });
 
 describe('UrlSafeBase64()', () => {
-  const RAW_CONTENT = 'J)oz¸Z\u009Dß¢£ùh\u0082Ú';
-  const URL_SAFE_ENCODED_CONTENT = 'Silverhand-io_logto';
+  const RAW_CONTENT = 'subjects?d=1subjects>d=1{"alg":"RS256","name":"测试"}';
+  const ENCODED_CONTENT =
+    'c3ViamVjdHM/ZD0xc3ViamVjdHM+ZD0xeyJhbGciOiJSUzI1NiIsIm5hbWUiOiLmtYvor5UifQ==';
+  const URL_SAFE_ENCODED_CONTENT =
+    'c3ViamVjdHM_ZD0xc3ViamVjdHM-ZD0xeyJhbGciOiJSUzI1NiIsIm5hbWUiOiLmtYvor5UifQ';
 
   describe('encode()', () => {
     test('replace plus sign `+` (by minus sign `-`) and slash `/` (by underscore `_`) in base64-encoded content', () => {
-      expect(UrlSafeBase64.encode(RAW_CONTENT)).toEqual(URL_SAFE_ENCODED_CONTENT);
+      expect(urlSafeBase64.encode(RAW_CONTENT)).toEqual(URL_SAFE_ENCODED_CONTENT);
     });
   });
 
   describe('decode()', () => {
     test('restore plus sign `+` (by minus sign `-`) and slash `/` (by underscore `_`) in base64-encoded content', () => {
-      expect(UrlSafeBase64.decode(URL_SAFE_ENCODED_CONTENT)).toEqual(RAW_CONTENT);
+      expect(urlSafeBase64.decode(URL_SAFE_ENCODED_CONTENT)).toEqual(RAW_CONTENT);
     });
   });
 
-  const ENCODED_CONTENT = 'Silverhand+io/logto';
-
   describe('replaceNonUrlSafeCharacters()', () => {
     test('replaceNonUrlSafeCharacters and remove non-url-safe character `=`', () => {
-      expect(UrlSafeBase64.replaceNonUrlSafeCharacters(`${ENCODED_CONTENT}=`)).toEqual(
+      expect(urlSafeBase64.replaceNonUrlSafeCharacters(ENCODED_CONTENT)).toEqual(
         URL_SAFE_ENCODED_CONTENT
       );
     });
@@ -38,7 +39,7 @@ describe('UrlSafeBase64()', () => {
 
   describe('restoreNonUrlSafeCharacters()', () => {
     test('restoreNonUrlSafeCharacters', () => {
-      expect(UrlSafeBase64.restoreNonUrlSafeCharacters(URL_SAFE_ENCODED_CONTENT)).toEqual(
+      expect(urlSafeBase64.restoreNonUrlSafeCharacters(`${URL_SAFE_ENCODED_CONTENT}==`)).toEqual(
         ENCODED_CONTENT
       );
     });
@@ -46,17 +47,17 @@ describe('UrlSafeBase64()', () => {
 
   describe('isSafe()', () => {
     test('empty string should be true', () => {
-      expect(UrlSafeBase64.isSafe('')).toBeTruthy();
+      expect(urlSafeBase64.isSafe('')).toBeTruthy();
     });
 
     test('url-safe characters should be true', () => {
       expect(
-        UrlSafeBase64.isSafe('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_')
+        urlSafeBase64.isSafe('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_')
       ).toBeTruthy();
     });
 
     test('non-url-safe characters should be false', () => {
-      expect(UrlSafeBase64.isSafe('=+')).toBeFalsy();
+      expect(urlSafeBase64.isSafe('=+')).toBeFalsy();
     });
   });
 });
