@@ -3,6 +3,7 @@ export * from './assert';
 export * from './assertions';
 export * from './conditional';
 export * from './env';
+export * from './function';
 export * from './pick';
 export * from './string';
 export * from './types';
