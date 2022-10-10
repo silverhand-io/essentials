@@ -18,3 +18,5 @@ export const repeat = <T>(times: number, initial: T, iterate: (accumulator: T) =
   return result;
 };
 /* eslint-enable @silverhand/fp/no-let, @silverhand/fp/no-mutation */
+
+export const deduplicate = <T>(array: T[]) => [...new Set(array)];
