@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@silverhand/eslint-config": "1.0.0",
-    "@silverhand/ts-config": "1.0.0",
+    "@silverhand/ts-config": "1.2.1",
     "@types/jest": "^27.0.1",
     "@types/lodash.orderby": "^4.6.6",
     "@types/lodash.pick": "^4.4.6",
