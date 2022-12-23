@@ -16,7 +16,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "rm -rf lib/ && tsc",
+    "build": "rm -rf lib/ && tsc -p tsconfig.build.json",
     "build:test": "rm -rf lib/ && tsc -p tsconfig.test.json",
     "prepack": "pnpm test && pnpm build",
     "lint": "eslint --ext .ts src",
@@ -27,7 +27,7 @@
     "@silverhand/ts-config": "1.2.1",
     "@types/jest": "^29.2.4",
     "@types/node": "^16.9.1",
-    "eslint": "^8.22.0",
+    "eslint": "^8.30.0",
     "expect-type": "^0.14.0",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",

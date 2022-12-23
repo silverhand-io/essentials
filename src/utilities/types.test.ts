@@ -1,6 +1,6 @@
 import { expectTypeOf } from 'expect-type';
 
-import { KeysToCamelCase } from './types.js';
+import type { KeysToCamelCase } from './types.js';
 
 describe('Check type conversion', () => {
   test('Snake case to camel case key mapping conversion', () => {

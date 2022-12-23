@@ -1,6 +1,6 @@
-import { Truthy } from './types.js';
+import type { Truthy } from './types.js';
 
-// eslint-disable-next-line id-length, complexity
+// eslint-disable-next-line id-length
 const compareFunction = <T extends string | boolean | number>(a: T, b: T) => {
   if (typeof a === 'string' && typeof b === 'string') {
     return a.localeCompare(b);

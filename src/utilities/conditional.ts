@@ -1,5 +1,5 @@
 import { notFalsy } from './assertions.js';
-import { Nullable, Optional, Truthy } from './types.js';
+import type { Nullable, Optional, Truthy } from './types.js';
 
 export const nullable = <T>(exp: T): Nullable<Truthy<T>> => (notFalsy(exp) ? exp : null);
 
