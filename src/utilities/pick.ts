@@ -1,6 +1,6 @@
 import { Picked, PlainObject } from './types.js';
 
-const pick = <T, Keys extends Array<keyof T>>(
+export const pick = <T, Keys extends Array<keyof T>>(
   object: T,
   ...keys: Keys
 ): { [key in Keys[number]]: T[key] } => {
