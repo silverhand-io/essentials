@@ -7,3 +7,4 @@ export * from './function.js';
 export * from './pick.js';
 export * from './string.js';
 export * from './types.js';
+export * from './get.js';
