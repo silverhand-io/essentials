@@ -1,8 +1,14 @@
-import pick from 'lodash.pick';
-
 import { Picked, PlainObject } from './types';
 
-export { default as pick } from 'lodash.pick';
+const pick = <T, Keys extends Array<keyof T>>(
+  object: T,
+  ...keys: Keys
+): { [key in Keys[number]]: T[key] } => {
+  // eslint-disable-next-line no-restricted-syntax
+  return Object.fromEntries(keys.map((key) => [key, object[key]])) as {
+    [key in Keys[number]]: T[key];
+  };
+};
 
 export const pickState =
   <T extends PlainObject, Keys extends Array<keyof T>>(...keys: Keys) =>

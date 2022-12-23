@@ -19,8 +19,6 @@
     "@silverhand/eslint-config": "1.0.0",
     "@silverhand/ts-config": "1.0.0",
     "@types/jest": "^27.0.1",
-    "@types/lodash.orderby": "^4.6.6",
-    "@types/lodash.pick": "^4.4.6",
     "@types/node": "^16.9.1",
     "eslint": "^8.22.0",
     "expect-type": "^0.14.0",
@@ -33,10 +31,6 @@
   "engines": {
     "node": ">=14.15.0",
     "pnpm": ">=6"
-  },
-  "dependencies": {
-    "lodash.orderby": "^4.6.0",
-    "lodash.pick": "^4.4.0"
   },
   "prettier": "@silverhand/eslint-config/.prettierrc",
   "eslintConfig": {

@@ -1,6 +1,21 @@
-import orderBy from 'lodash.orderby';
-
 import { Truthy } from './types';
+
+// eslint-disable-next-line id-length, complexity
+const compareFunction = <T extends string | boolean | number>(a: T, b: T) => {
+  if (typeof a === 'string' && typeof b === 'string') {
+    return a.localeCompare(b);
+  }
+
+  if (typeof a === 'number' && typeof b === 'number') {
+    return a - b;
+  }
+
+  if (typeof a === 'boolean' && typeof b === 'boolean') {
+    return Number(a) - Number(b);
+  }
+
+  throw new Error('Unsupported compare type');
+};
 
 export const isSameArray = <T extends string | boolean | number>(
   array1: T[],
@@ -10,8 +25,8 @@ export const isSameArray = <T extends string | boolean | number>(
     return false;
   }
 
-  const sortedA = orderBy(array1);
-  const sortedB = orderBy(array2);
+  const sortedA = array1.slice().sort(compareFunction);
+  const sortedB = array2.slice().sort(compareFunction);
 
   return sortedA.every((value, index) => value === sortedB[index]);
 };

@@ -7,5 +7,3 @@ export * from './function';
 export * from './pick';
 export * from './string';
 export * from './types';
-
-export { default as orderBy } from 'lodash.orderby';
