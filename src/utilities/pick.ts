@@ -1,4 +1,4 @@
-import { Picked, PlainObject } from './types';
+import { Picked, PlainObject } from './types.js';
 
 const pick = <T, Keys extends Array<keyof T>>(
   object: T,

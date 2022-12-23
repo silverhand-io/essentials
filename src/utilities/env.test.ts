@@ -1,4 +1,4 @@
-import { assertEnv, getEnv, getEnvAsStringArray, isNode } from './env';
+import { assertEnv, getEnv, getEnvAsStringArray, isNode } from './env.js';
 
 describe('getEnv()', () => {
   beforeAll(() => {

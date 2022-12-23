@@ -1,4 +1,4 @@
-import { toTitle, urlSafeBase64 } from './string';
+import { toTitle, urlSafeBase64 } from './string.js';
 
 describe('toTitle()', () => {
   test('upper-case the first non-blank character of each word', () => {

@@ -3,9 +3,12 @@
   "compilerOptions": {
     "declaration": true,
     "outDir": "lib",
-    "target": "ES6"
+    "moduleResolution": "nodenext",
+    "module": "esnext",
+    "target": "esnext"
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": ["src/**/*.test.ts"],
 }

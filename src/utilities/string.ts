@@ -1,4 +1,4 @@
-import { isNode } from './env';
+import { isNode } from './env.js';
 
 export function toTitle(string: string) {
   if (typeof string !== 'string') {

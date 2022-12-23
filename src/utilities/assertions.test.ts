@@ -1,4 +1,4 @@
-import { isSameArray } from './assertions';
+import { isSameArray } from './assertions.js';
 
 describe('isSameArray()', () => {
   it('should return true for same arrays', () => {

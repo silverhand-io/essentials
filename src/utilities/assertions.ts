@@ -1,4 +1,4 @@
-import { Truthy } from './types';
+import { Truthy } from './types.js';
 
 // eslint-disable-next-line id-length, complexity
 const compareFunction = <T extends string | boolean | number>(a: T, b: T) => {

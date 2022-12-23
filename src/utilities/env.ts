@@ -1,4 +1,4 @@
-import { assert } from './assert';
+import { assert } from './assert.js';
 
 // Browsers don't have `process`
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
