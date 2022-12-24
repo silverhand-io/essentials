@@ -15,5 +15,6 @@ describe('get()', () => {
     // eslint-disable-next-line unicorn/no-useless-undefined
     expect(get(object, 'ddd')).toStrictEqual(undefined);
     expect(() => get(object, 'ddd.ccc')).toThrowError(TypeError);
+    expect(() => get('', '')).toThrowError(new TypeError('Non-object received in `get()`.'));
   });
 });

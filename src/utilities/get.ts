@@ -25,14 +25,14 @@ type Get = {
     object: T,
     keySerial: Serial
   ): ExtractKeySerialType<T, Serial>;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  <T extends object>(object: T, keySerial: unknown): unknown;
+  (object: unknown, keySerial: string): unknown;
 };
 
-export const get: Get = <T extends Record<string, unknown>, Serial extends KeySerial<T>>(
-  object: T,
-  keySerial: Serial
-): ExtractKeySerialType<T, Serial> => {
+export const get: Get = (object: unknown, keySerial: string) => {
+  if (object === null || typeof object !== 'object') {
+    throw new TypeError('Non-object received in `get()`.');
+  }
+
   let result: unknown = object;
 
   for (const key of keySerial.split('.')) {
@@ -40,8 +40,7 @@ export const get: Get = <T extends Record<string, unknown>, Serial extends KeySe
     result = result[key];
   }
 
-  // eslint-disable-next-line no-restricted-syntax
-  return result as ExtractKeySerialType<T, Serial>;
+  return result;
 };
 
 /** Same to `get()` but with the strict type definition only to enable IntelliSense. */
