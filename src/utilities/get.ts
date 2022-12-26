@@ -1,3 +1,5 @@
+import { trySafe } from './function.js';
+
 type ValidKeys<T> = keyof T extends string ? keyof T : never;
 
 export type KeySerial<T extends Record<string, unknown>> =
@@ -42,6 +44,8 @@ export const get: Get = (object: unknown, keySerial: string) => {
 
   return result;
 };
+
+export const getSafe: Get = (...args: Parameters<Get>) => trySafe(() => get(...args));
 
 /** Same to `get()` but with the strict type definition only to enable IntelliSense. */
 export const getValue = <T extends Record<string, unknown>, Serial extends KeySerial<T>>(
