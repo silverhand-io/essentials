@@ -1,4 +1,5 @@
 import { assert } from './assert.js';
+import type { Nullable } from './types.js';
 
 // Browsers don't have `process`
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
@@ -27,3 +28,7 @@ export const assertEnv = (key: string): string => {
 };
 
 export const isNode = () => typeof window === 'undefined';
+
+export const isTrue = (value?: Nullable<string>) =>
+  // eslint-disable-next-line no-implicit-coercion
+  !!value && ['1', 'true', 'y', 'yes', 'yep', 'yeah'].includes(value.toLowerCase());

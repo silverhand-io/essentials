@@ -1,4 +1,4 @@
-import { assertEnv, getEnv, getEnvAsStringArray, isNode } from './env.js';
+import { assertEnv, getEnv, getEnvAsStringArray, isNode, isTrue } from './env.js';
 
 describe('getEnv()', () => {
   beforeAll(() => {
@@ -62,5 +62,21 @@ describe('assertEnv()', () => {
 describe('isNode()', () => {
   it('when running under Node', () => {
     expect(isNode()).toBeTruthy();
+  });
+});
+
+describe('isTrue()', () => {
+  it('return correct result', () => {
+    expect(isTrue('1')).toBeTruthy();
+    expect(isTrue('true')).toBeTruthy();
+    expect(isTrue('y')).toBeTruthy();
+    expect(isTrue('yes')).toBeTruthy();
+    expect(isTrue('yep')).toBeTruthy();
+    expect(isTrue('yeah')).toBeTruthy();
+    expect(isTrue('')).toBeFalsy();
+    expect(isTrue('0')).toBeFalsy();
+    expect(isTrue('false')).toBeFalsy();
+    expect(isTrue('n')).toBeFalsy();
+    expect(isTrue('no')).toBeFalsy();
   });
 });
