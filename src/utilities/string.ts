@@ -1,4 +1,5 @@
 import { isNode } from './env.js';
+import type { Nullable } from './types.js';
 
 export function toTitle(string: string) {
   if (typeof string !== 'string') {
@@ -39,3 +40,7 @@ export const urlSafeBase64 = {
   replaceNonUrlSafeCharacters,
   restoreNonUrlSafeCharacters,
 };
+
+export const yes = (value?: Nullable<string>) =>
+  // eslint-disable-next-line no-implicit-coercion
+  !!value && ['1', 'true', 'y', 'yes', 'yep', 'yeah'].includes(value.toLowerCase());

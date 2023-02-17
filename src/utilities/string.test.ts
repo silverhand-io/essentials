@@ -1,4 +1,4 @@
-import { toTitle, urlSafeBase64 } from './string.js';
+import { toTitle, urlSafeBase64, yes } from './string.js';
 
 describe('toTitle()', () => {
   test('upper-case the first non-blank character of each word', () => {
@@ -59,5 +59,21 @@ describe('UrlSafeBase64()', () => {
     test('non-url-safe characters should be false', () => {
       expect(urlSafeBase64.isSafe('=+')).toBeFalsy();
     });
+  });
+});
+
+describe('yes()', () => {
+  it('return correct result', () => {
+    expect(yes('1')).toBeTruthy();
+    expect(yes('true')).toBeTruthy();
+    expect(yes('y')).toBeTruthy();
+    expect(yes('yes')).toBeTruthy();
+    expect(yes('yep')).toBeTruthy();
+    expect(yes('yeah')).toBeTruthy();
+    expect(yes('')).toBeFalsy();
+    expect(yes('0')).toBeFalsy();
+    expect(yes('false')).toBeFalsy();
+    expect(yes('n')).toBeFalsy();
+    expect(yes('no')).toBeFalsy();
   });
 });
