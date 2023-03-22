@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@silverhand/eslint-config': 1.3.0
-  '@silverhand/ts-config': 1.2.1
+  '@silverhand/ts-config': 2.1.0
   '@types/jest': ^29.2.4
   '@types/node': ^16.9.1
   eslint: ^8.30.0
@@ -15,7 +15,7 @@ specifiers:
 
 devDependencies:
   '@silverhand/eslint-config': 1.3.0_ahtophbrd2laqvxoyg4c2wfe7i
-  '@silverhand/ts-config': 1.2.1_typescript@4.9.4
+  '@silverhand/ts-config': 2.1.0_typescript@4.9.4
   '@types/jest': 29.2.4
   '@types/node': 16.9.1
   eslint: 8.30.0
@@ -771,11 +771,11 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /@silverhand/ts-config/1.2.1_typescript@4.9.4:
-    resolution: {integrity: sha512-Lm5Ydb45qKmXvlOfQfSb+1WHrdL5IBtzt+AMOR5h528H073FLzaazLiaDo4noBVT9PAVtO7kG9qjwSPzHf0k9Q==}
-    engines: {node: ^16.0.0 || ^18.0.0}
+  /@silverhand/ts-config/2.1.0_typescript@4.9.4:
+    resolution: {integrity: sha512-LDMRH/9JqQiqekfVWdv/MSqJVsFEN8Ck2C93+7wtgQ4EiGrrcUFEX+dBuTTYtv1GmXAqYr5A6aGLXgLiXIGxdg==}
+    engines: {node: ^18.12.0}
     peerDependencies:
-      typescript: ^4.7.4
+      typescript: ^4.9.4
     dependencies:
       typescript: 4.9.4
     dev: true
