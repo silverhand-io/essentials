@@ -9,8 +9,8 @@
   "main": "lib/index.js",
   "module": "lib/index.js",
   "exports": {
-    "default": "./lib/index.js",
-    "import": "./lib/index.js"
+    "import": "./lib/index.js",
+    "default": "./lib/index.js"
   },
   "files": [
     "lib"
