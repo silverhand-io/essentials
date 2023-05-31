@@ -10,3 +10,4 @@ export * from './types.js';
 export * from './get.js';
 export * from './url.js';
 export * from './object.js';
+export * from './once.js';
