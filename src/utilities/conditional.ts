@@ -51,6 +51,20 @@ export const conditionalArray = <T>(
 export const condArray = conditionalArray;
 
 /**
+ * An object with all {@link Falsy} values removed while keeping the object structure.
+ * Note `undefined` definitions are not removed from the object in some conditions
+ * because it's uncertain whether the value is falsy or not.
+ */
+export type TruthyObject<T extends Record<string, unknown>> = {
+  // Directly remove the key if the type is falsy.
+  [K in keyof T as T[K] extends Falsy ? never : K]: [T[K] & Falsy] extends [never]
+    ? // No intersection with falsy types, keep the type.
+      T[K]
+    : // If the type could be falsy, make it optional.
+      Optional<Truthy<T[K]>>;
+};
+
+/**
  * Return a new object with all {@link Falsy} values removed.
  * This function only performs a shallow removal, i.e. it does not remove
  * {@link Falsy} values nested in objects.
@@ -64,14 +78,11 @@ export const condArray = conditionalArray;
  * }) // { foo: 'foo' }
  * ```
  */
-export const conditionalObject = <T extends Record<string, unknown>>(
-  object: T
-): Record<keyof T, Truthy<T[keyof T]>> =>
+export const conditionalObject = <T extends Record<string, unknown>>(object: T): TruthyObject<T> =>
   // eslint-disable-next-line no-restricted-syntax
-  Object.fromEntries(Object.entries(object).filter(([, value]) => notFalsy(value))) as Record<
-    keyof T,
-    Truthy<T[keyof T]>
-  >;
+  Object.fromEntries(
+    Object.entries(object).filter(([, value]) => notFalsy(value))
+  ) as TruthyObject<T>;
 
 /** Alias for {@link conditionalObject}. */
 export const condObject = conditionalObject;
