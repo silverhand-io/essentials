@@ -86,3 +86,11 @@ export type KeysToCamelCase<T> = {
     : T[K];
 };
 /* eslint-enable @typescript-eslint/no-explicit-any */
+
+/** Deeply make all properties of an object optional. */
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
