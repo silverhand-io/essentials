@@ -76,8 +76,12 @@ export type NormalizeKeyPaths<T> = keyof T | NormalizeKeyPathsRecursively<T>;
  * Inspired by:
  * https://stackoverflow.com/a/65015868/3431443
  */
-type CamelCase<S extends string> = S extends `${infer P1}_${infer P2}${infer P3}`
+export type CamelCase<S extends string> = S extends `${infer P1}_${infer P2}${infer P3}`
   ? `${Lowercase<P1>}${Uppercase<P2>}${CamelCase<P3>}`
+  : Lowercase<S>;
+
+export type SnakeCase<S extends string> = S extends `${infer P1}${infer P2}${infer P3}`
+  ? `${P1}${P2 extends Uppercase<P2> ? '_' : ''}${Lowercase<P2>}${SnakeCase<P3>}`
   : Lowercase<S>;
 
 export type KeysToCamelCase<T> = {
