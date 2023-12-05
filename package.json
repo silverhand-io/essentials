@@ -1,6 +1,6 @@
 {
   "name": "@silverhand/essentials",
-  "version": "2.8.5",
+  "version": "2.8.6",
   "description": "The missing essentials for TypeScript (and JavaScript).",
   "repository": "git@github.com:silverhand-io/essentials.git",
   "author": "Silverhand Inc.",
