@@ -1,4 +1,3 @@
-import { isNode } from './env.js';
 import type { Nullable } from './types.js';
 
 export function toTitle(string: string) {
@@ -24,18 +23,14 @@ const restoreNonUrlSafeCharacters = (base64String: string) =>
 export const urlSafeBase64 = {
   isSafe: (input: string) => /^[\w-]*$/.test(input),
   encode: (rawString: string) => {
-    const encodedString = isNode()
-      ? Buffer.from(rawString, 'utf8').toString('base64')
-      : window.btoa(unescape(encodeURIComponent(rawString)));
+    const encodedString = btoa(unescape(encodeURIComponent(rawString)));
 
     return replaceNonUrlSafeCharacters(encodedString);
   },
   decode: (encodedString: string) => {
     const nonUrlSafeEncodedString = restoreNonUrlSafeCharacters(encodedString);
 
-    return isNode()
-      ? Buffer.from(nonUrlSafeEncodedString, 'base64').toString('utf8')
-      : decodeURIComponent(escape(window.atob(nonUrlSafeEncodedString)));
+    return decodeURIComponent(escape(atob(nonUrlSafeEncodedString)));
   },
   replaceNonUrlSafeCharacters,
   restoreNonUrlSafeCharacters,
