@@ -15,8 +15,8 @@ devDependencies:
     specifier: 1.3.0
     version: 1.3.0(eslint@8.30.0)(prettier@2.8.1)(typescript@5.0.2)
   '@silverhand/ts-config':
-    specifier: 1.2.1
-    version: 1.2.1(typescript@5.0.2)
+    specifier: 5.0.0
+    version: 5.0.0(typescript@5.0.2)
   '@types/jest':
     specifier: ^29.2.4
     version: 29.2.4
@@ -862,11 +862,11 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /@silverhand/ts-config@1.2.1(typescript@5.0.2):
-    resolution: {integrity: sha512-Lm5Ydb45qKmXvlOfQfSb+1WHrdL5IBtzt+AMOR5h528H073FLzaazLiaDo4noBVT9PAVtO7kG9qjwSPzHf0k9Q==}
-    engines: {node: ^16.0.0 || ^18.0.0}
+  /@silverhand/ts-config@5.0.0(typescript@5.0.2):
+    resolution: {integrity: sha512-KpX9b1Dsp6vm6xboEsi4P/g0HtRVYDW2dzYM4s2r3Gs0XnYRJjnURa9y8z3R4F96ax/gkqXOf6w+EAsp9P0/wg==}
+    engines: {node: ^20.9.0}
     peerDependencies:
-      typescript: ^4.7.4
+      typescript: ^5.3.3
     dependencies:
       typescript: 5.0.2
     dev: true
