@@ -27,8 +27,8 @@ devDependencies:
     specifier: ^8.30.0
     version: 8.30.0
   expect-type:
-    specifier: ^0.14.0
-    version: 0.14.0
+    specifier: ^0.17.0
+    version: 0.17.1
   jest:
     specifier: ^29.3.1
     version: 29.3.1(@types/node@20.11.6)
@@ -2380,8 +2380,9 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /expect-type@0.14.0:
-    resolution: {integrity: sha512-c1b8FMNk9lUP+ho7z4Fgug6wyqvT/its7EWzZ8kRvJkGlNmvAk5ZKHlan5VVYuozY+3C9iWRYX/cK6DQvduhRQ==}
+  /expect-type@0.17.1:
+    resolution: {integrity: sha512-DR6gDDjTnfdVuHCfDBQADOKspW+XJQLV+9Tx9Vnq8JWo/rIurq1Wf+lonG4FnkIOWj4LGi3miVzs1Vacl+zD0A==}
+    engines: {node: '>=12.0.0'}
     dev: true
 
   /expect@29.3.1:
