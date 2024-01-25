@@ -6,10 +6,10 @@ describe('conditionalObject', () => {
     const result2 = condObject({ foo: 'foo', bar: undefined, baz: false });
 
     // @ts-expect-error - `baz` is removed from the object.
-    type _ = typeof result['baz'];
+    type _ = (typeof result)['baz'];
 
     // Should be `true | undefined` because `baz` could be true in the original type `boolean`.
-    type __ = typeof result2['baz'];
+    type __ = (typeof result2)['baz'];
 
     expect(result).toEqual({ foo: 'foo' });
     expect(result2).toEqual({ foo: 'foo' });

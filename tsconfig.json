@@ -4,7 +4,7 @@
     "declaration": true,
     "outDir": "lib",
     "moduleResolution": "nodenext",
-    "module": "esnext",
+    "module": "nodenext",
     "target": "esnext",
     "types": ["node", "jest"]
   },

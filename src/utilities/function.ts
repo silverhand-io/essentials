@@ -16,7 +16,7 @@ export type TryThat = {
   ): Promise<T>;
 };
 
-export const tryThat: TryThat = (exec, onError) => {
+export const tryThat: TryThat = async (exec, onError) => {
   const handleError = (error: unknown) => {
     if (onError instanceof Error) {
       throw onError;
@@ -28,29 +28,26 @@ export const tryThat: TryThat = (exec, onError) => {
   try {
     const unwrapped = typeof exec === 'function' ? exec() : exec;
 
-    return isPromise(unwrapped)
-      ? // eslint-disable-next-line promise/prefer-await-to-then
-        unwrapped.catch(handleError)
-      : unwrapped;
+    return isPromise(unwrapped) ? await unwrapped.catch(handleError) : unwrapped;
   } catch (error: unknown) {
     return handleError(error);
   }
 };
 
 export type TrySafe = {
-  <T>(exec: Promise<T> | (() => Promise<T>), onError?: (error: unknown) => void): Promise<
-    T | undefined
-  >;
+  <T>(
+    exec: Promise<T> | (() => Promise<T>),
+    onError?: (error: unknown) => void
+  ): Promise<T | undefined>;
   <T>(exec: () => T, onError?: (error: unknown) => void): T | undefined;
 };
 
-export const trySafe: TrySafe = (exec, onError) => {
+export const trySafe: TrySafe = async (exec, onError) => {
   try {
     const unwrapped = typeof exec === 'function' ? exec() : exec;
 
     return isPromise(unwrapped)
-      ? // eslint-disable-next-line promise/prefer-await-to-then
-        unwrapped.catch((error: unknown) => {
+      ? await unwrapped.catch((error: unknown) => {
           onError?.(error);
         })
       : unwrapped;
