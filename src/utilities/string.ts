@@ -7,8 +7,8 @@ export function toTitle(string: string) {
 
   return string
     .toLowerCase()
-    .replace(/(?:^|\s|-)\S/g, (value) => value.toUpperCase())
-    .replace(/-/g, ' ');
+    .replaceAll(/(?:^|\s|-)\S/g, (value) => value.toUpperCase())
+    .replaceAll('-', ' ');
 }
 
 /**
@@ -16,9 +16,9 @@ export function toTitle(string: string) {
  * @link https://datatracker.ietf.org/doc/html/rfc4648#section-5
  */
 const replaceNonUrlSafeCharacters = (base64String: string) =>
-  base64String.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+  base64String.replaceAll('+', '-').replaceAll('/', '_').replaceAll(/=+$/g, '');
 const restoreNonUrlSafeCharacters = (base64String: string) =>
-  base64String.replace(/-/g, '+').replace(/_/g, '/');
+  base64String.replaceAll('-', '+').replaceAll('_', '/');
 
 export const urlSafeBase64 = {
   isSafe: (input: string) => /^[\w-]*$/.test(input),

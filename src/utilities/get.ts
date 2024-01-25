@@ -8,13 +8,13 @@ export type KeySerial<T extends Record<string, unknown>> =
       [key in ValidKeys<T>]: T[key] extends unknown[]
         ? never
         : T[key] extends Record<string, unknown>
-        ? `${key}.${KeySerial<T[key]>}`
-        : never;
+          ? `${key}.${KeySerial<T[key]>}`
+          : never;
     }[ValidKeys<T>];
 
 export type ExtractKeySerialType<
   T extends Record<string, unknown>,
-  Serial extends string
+  Serial extends string,
 > = Serial extends `${infer Key}.${infer Rest}`
   ? T[Key] extends Record<string, unknown>
     ? ExtractKeySerialType<T[Key], Rest>
