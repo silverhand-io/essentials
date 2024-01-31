@@ -1,4 +1,4 @@
-import { isSameArray } from './assertions.js';
+import { isPlainObject, isSameArray } from './assertions.js';
 
 describe('isSameArray()', () => {
   it('should return true for same arrays', () => {
@@ -18,5 +18,36 @@ describe('isSameArray()', () => {
     expect(() => isSameArray(['a', 'b', 'cc'], ['b', 'c', 1])).toThrowError(
       'Unsupported compare type'
     );
+  });
+});
+
+describe('isPlainObject()', () => {
+  class Foo {
+    abc = {};
+  }
+
+  // Should return true with isPlainObject()
+  const trues = [
+    Object.create({}),
+    Object.create(Object.prototype),
+    { foo: 'bar' },
+    {},
+    Object.create(null),
+  ];
+
+  // Should return false with isPlainObject()
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const falses = [/foo/, function () {}, 1, ['foo', 'bar'], [], new Foo(), null];
+
+  it('should return true', () => {
+    for (const trueValue of trues) {
+      expect(isPlainObject(trueValue)).toBeTruthy();
+    }
+  });
+
+  it('should return false', () => {
+    for (const falseValue of falses) {
+      expect(isPlainObject(falseValue)).toBeFalsy();
+    }
   });
 });

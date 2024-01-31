@@ -42,3 +42,43 @@ export const has = (data: unknown, property: string) =>
 
 export const hasChineseCharacter = (string: string): boolean =>
   Boolean(/[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]/.test(string));
+
+/*!
+ * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+// eslint-disable-next-line @typescript-eslint/ban-types -- this is a utility function
+const isObject = (object: unknown): object is object =>
+  Object.prototype.toString.call(object) === '[object Object]';
+
+/** Returns true if an object was created by the `Object` constructor, or `Object.create(null)`. */
+export function isPlainObject(object: unknown) {
+  if (!isObject(object)) {
+    return false;
+  }
+
+  // If has modified constructor
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (object.constructor === undefined) {
+    return true;
+  }
+
+  // If has modified prototype
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, prefer-destructuring
+  const prototype = object.constructor.prototype;
+
+  if (!isObject(prototype)) {
+    return false;
+  }
+
+  // If constructor does not have an Object-specific method
+  if (!has(prototype, 'isPrototypeOf')) {
+    return false;
+  }
+
+  // Most likely a plain Object
+  return true;
+}
