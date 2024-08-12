@@ -1,6 +1,6 @@
 // Intended
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-export const noop = () => {};
+// eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-explicit-any
+export const noop: (...args: any[]) => any = () => {};
 
 export const isPromise = (value: unknown): value is Promise<unknown> =>
   value !== null &&
