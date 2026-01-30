@@ -15,6 +15,9 @@ jobs:
 
       - name: Setup Node and pnpm
         uses: silverhand-io/actions-node-pnpm-run-steps@v5
+        with:
+          pnpm-version: '10'
+          node-version: '24'
 
       - name: Lint
         run: pnpm lint
