@@ -26,7 +26,7 @@
     "test": "pnpm build:test && NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-typescript": "^11.1.6",
     "@silverhand/eslint-config": "5.0.0",
     "@silverhand/ts-config": "5.0.0",
