@@ -15,7 +15,7 @@ jobs:
         node-version: ['18', '20', '22', '24', '25']
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Node and pnpm
         uses: silverhand-io/actions-node-pnpm-run-steps@v5
